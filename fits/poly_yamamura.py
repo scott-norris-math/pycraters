@@ -18,14 +18,14 @@ def poly_yamamura(LMparams, angles):
 
   # construct the function
   model  = np.zeros(np.shape(angles))
-  model = unp.uarray(model, model)
+  #model = unp.uarray(model, model)
   for pp in range(0,10):
     pstring = "c%1d" % (pp)
     if pstring in LMparams:
-      err = 0.0 if LMparams[pstring].stderr == None else LMparams[pstring].stderr == None 
+      #err = 0.0 if LMparams[pstring].stderr == None else LMparams[pstring].stderr == None 
       #print LMparams[pstring].value, "+/-", LMparams[pstring].stderr
-      coeff = ufloat(LMparams[pstring].value, err)
-      
+      #coeff = ufloat(LMparams[pstring].value, err)
+      coeff = LMparams[pstring].value
       model  += coeff * radt**pp * Yterm
 
   return model

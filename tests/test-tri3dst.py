@@ -17,12 +17,12 @@ params.impacts = 1000
 params.target = [["Si", 1.0]]
 
 # do the simulations
-angles = np.linspace(0,85,18)
+angles = np.linspace(0,80,9)
 finedeg = np.linspace(0,90,91)
 for aa in angles:
-  #print "running angle %d" % (aa)
+  print("running angle %02d." % (aa))
   params.angle = aa
-  wrapper.go(params)  
+  wrapper.go(params, save_raw_data=False)
 
 # plot graph of M0
 fits  = pc.helpers.linked_PDE_coefficients_1D(wrapper, params, angles, finedeg)
