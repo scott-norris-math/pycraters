@@ -1,0 +1,41 @@
+
+
+(I think I fixed this -- check).
+when a simulation is run as a binary compound, but one of the concentrations is zero, it runs fine, and returns the data structure of a binary compound with one of the components simply zeroed out.  This should be good for comparing small concentrations to zero concentrations.  However, the fitting algorithm fails to run in this case, getting stuck at some point complaining about "divide by zero" followed by "invalid value" (ie NaN).
+
+
+
+
+fitfunctions
+------------------
+* rename to 'fits'?
+* create a generalized object with a method for each derivative, or a method for arbitrary derivatives that uses finite difference or symbolic/automatic differentiation
+
+
+examples/
+------------
+* each entry should do a single thing that a beginning user might desire (i.e., from literature)
+* it should end up with a simple plot -- a "turn-key" solution for beginning users
+* it should be something that a user could modify for a more specialized situation
+
+
+helpers.py
+------------
+* convert to a directory (definitely)
+* each entry in this directory should do a single thing that a beginning user might desire
+* it should end up with a simple plot -- a "turn-key" solution for beginning users
+* it should be something that a user could copy and paste, and then modify for a more specialized situation
+
+
+
+utilities
+------------
+This should be a set of common routines that do not qualify as turn-key (one layer of complexity down)
+stuff that is currently in IO might (or might not) qualify for this level
+stuff that is currently in helpers might (or might not) qualify for this level
+
+
+
+* collect a few statements defining common plotting parameters into a file that is included in all of the helpers.
+
+
